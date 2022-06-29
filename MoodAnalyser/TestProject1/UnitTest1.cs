@@ -36,6 +36,23 @@
         // <summary>
         /// repeat TC1.1 Given �I am in SAD Mood� message in Constructor Should Return SAD
         /// </summary>
+        [Test]
+        public void GivenMessage_WhenNull_ShouldReturnHappy()
+        {
+            moodAnalyser = new MoodAnalyser();
+            string message = moodAnalyser.AnalyseMood();
+            Assert.AreEqual("SAD", message);
+        }
+        // <summary>
+        /// repeat TC1.2 Given �I am in Happy Mood� message in Constructor Should Return HAPPY
+        /// </summary>
+        [Test]
+        public void GivenMessage_WhenHappy_ShouldReturnHappy()
+        {
+            moodAnalyser = new MoodAnalyser("I am in Happy mood");
+            string message = moodAnalyser.AnalyseMood();
+            Assert.AreEqual("HAPPY", message);
+        }
 
 
     }
