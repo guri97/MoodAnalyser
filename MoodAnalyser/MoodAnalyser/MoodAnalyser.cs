@@ -21,22 +21,19 @@ namespace AssesmentMoodAnalyser
         }
         public string AnalyseMood()
         {
-
             try
             {
                 if (message.ToLower().Contains("sad"))
                     return "SAD";
-
-
+                else if (message.Equals(string.Empty))
+                    throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.EMPTY_MOOD, "Mood should not be empty");
                 else return "HAPPY";
             }
             catch (NullReferenceException)
             {
-
-                return "HAPPY";
+                throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.NULL_MOOD, "Mood Should Not Be Null");
+                //return "HAPPY";
             }
-
-
         }
         public string AnalyseMoodWithoutConstructor(string message)
         {
